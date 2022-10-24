@@ -6,6 +6,7 @@ import (
 	"github.com/unknwon/com"
 )
 
+//分页页码的获取方法
 func GetPage(c *gin.Context) int {
 	result := 0
 	page, _ := com.StrTo(c.Query("page")).Int()
