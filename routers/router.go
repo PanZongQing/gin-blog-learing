@@ -2,12 +2,12 @@ package routers
 
 import (
 	"gin-blog/pkg/setting"
-	v1 "gin-blog/routers/api/v1"
+	"gin-blog/routers/api/v1"
 	"github.com/gin-gonic/gin"
 )
 
 func InitRouter() *gin.Engine {
-	r := gin.Default()
+	r := gin.New()
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
 	gin.SetMode(setting.RunMode)
@@ -19,9 +19,9 @@ func InitRouter() *gin.Engine {
 		//新建标签
 		apiv1.POST("/tags", v1.AddTag)
 		//更新指定标签
-		apiv1.PUT("/tags", v1.EditTag)
+		apiv1.PUT("/tags/:id", v1.EditTag)
 		//删除指定标签
-		apiv1.DELETE("/tags", v1.DeleteTag)
+		apiv1.DELETE("/tags/:id", v1.DeleteTag)
 	}
 	return r
 }
