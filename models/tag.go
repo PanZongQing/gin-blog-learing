@@ -38,6 +38,7 @@ func AddTag(name string, state int, createdBy string) bool {
 	})
 	return true
 }
+
 func (tag *Tag) BeforeCreate(scope *gorm.Scope) error {
 	err := scope.SetColumn("CreatedOn", time.Now().Unix())
 	if err != nil {
