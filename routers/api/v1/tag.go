@@ -42,6 +42,7 @@ func GetTags(c *gin.Context) {
 func AddTag(c *gin.Context) {
 	name := c.Query("name")
 	state := com.StrTo(c.DefaultQuery("state", "0")).MustInt()
+	//state := c.DefaultQuery("state", "0")
 	createdBy := c.Query("created_by")
 
 	valid := validation.Validation{}

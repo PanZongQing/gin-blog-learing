@@ -30,6 +30,7 @@ func ExistTagByName(name string) bool {
 	}
 	return false
 }
+
 func AddTag(name string, state int, createdBy string) bool {
 	db.Create(&Tag{
 		Name:      name,
