@@ -40,17 +40,25 @@ func AddTag(name string, state int, createdBy string) bool {
 	return true
 }
 
+//func (tag *Tag) BeforeCreate(scope *gorm.Scope) error {
+//	err := scope.SetColumn("CreatedOn", time.Now().Unix())
+//	if err != nil {
+//		return err
+//	}
+//	return nil
+//}
+//func (tag *Tag) BeforeUpdate(scope *gorm.Scope) error {
+//	err := scope.SetColumn("ModifiedOn", time.Now().Unix())
+//	if err != nil {
+//		return err
+//	}
+//	return nil
+//}
 func (tag *Tag) BeforeCreate(scope *gorm.Scope) error {
-	err := scope.SetColumn("CreatedOn", time.Now().Unix())
-	if err != nil {
-		return err
-	}
+	scope.SetColumn("CreatedOn", time.Now().Unix())
 	return nil
 }
 func (tag *Tag) BeforeUpdate(scope *gorm.Scope) error {
-	err := scope.SetColumn("ModifiedOn", time.Now().Unix())
-	if err != nil {
-		return err
-	}
+	scope.SetColumn("ModifiedOn", time.Now().Unix())
 	return nil
 }
